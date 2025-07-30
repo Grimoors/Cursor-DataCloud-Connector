@@ -1,0 +1,59 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Authentication and Security
+PyJWT==2.8.0
+cryptography==41.0.8
+python-multipart==0.0.6
+
+# Salesforce Integration
+simple-salesforce==1.12.4
+requests==2.31.0
+
+# Data Processing
+pandas==2.1.4
+numpy==1.25.2
+
+# MCP (Model Context Protocol)
+mcp==1.0.0
+
+# Caching and Performance
+redis==5.0.1
+aioredis==2.0.1
+
+# HTTP Client
+httpx==0.25.2
+
+# Logging and Monitoring
+structlog==23.2.0
+python-json-logger==2.0.7
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+httpx==0.25.2
+
+# Development Tools
+black==23.11.0
+isort==5.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Environment Management
+python-dotenv==1.0.0
+
+# Async Support
+asyncio-mqtt==0.16.1
+
+# Validation
+email-validator==2.1.0
+
+# Date/Time Handling
+python-dateutil==2.8.2
+
+# Configuration Management
+dynaconf==3.2.4 

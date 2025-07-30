@@ -1,0 +1,303 @@
+/* Salesforce Data Cloud Assistant Webview Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--vscode-foreground);
+    background-color: var(--vscode-editor-background);
+    overflow: hidden;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--vscode-panel-border);
+    background-color: var(--vscode-panel-background);
+    flex-shrink: 0;
+}
+
+.header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--vscode-foreground);
+    margin: 0;
+}
+
+.status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: var(--vscode-badge-background);
+    color: var(--vscode-badge-foreground);
+    font-weight: 500;
+}
+
+.status.processing {
+    background-color: var(--vscode-progressBar-background);
+    color: var(--vscode-progressBar-foreground);
+}
+
+/* Chat Container */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Messages */
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.message.user {
+    align-items: flex-end;
+}
+
+.message.assistant,
+.message.system,
+.message.error {
+    align-items: flex-start;
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.message.user .message-content {
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border-bottom-right-radius: 4px;
+}
+
+.message.assistant .message-content {
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border);
+    border-bottom-left-radius: 4px;
+}
+
+.message.system .message-content {
+    background-color: var(--vscode-infoBar-background);
+    color: var(--vscode-infoBar-foreground);
+    border: 1px solid var(--vscode-infoBar-border);
+    border-bottom-left-radius: 4px;
+}
+
+.message.error .message-content {
+    background-color: var(--vscode-errorForeground);
+    color: var(--vscode-errorBackground);
+    border: 1px solid var(--vscode-errorForeground);
+    border-bottom-left-radius: 4px;
+}
+
+.message-timestamp {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+.message.user .message-timestamp {
+    text-align: right;
+}
+
+/* Input Container */
+.input-container {
+    padding: 16px;
+    border-top: 1px solid var(--vscode-panel-border);
+    background-color: var(--vscode-panel-background);
+    flex-shrink: 0;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#queryInput {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 6px;
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#queryInput:focus {
+    border-color: var(--vscode-focusBorder);
+}
+
+#queryInput:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#queryInput::placeholder {
+    color: var(--vscode-input-placeholderForeground);
+}
+
+#sendButton {
+    padding: 10px 16px;
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+#sendButton:hover:not(:disabled) {
+    background-color: var(--vscode-button-hoverBackground);
+}
+
+#sendButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Scrollbar */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: var(--vscode-scrollbarSlider-background);
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background-color: var(--vscode-scrollbarSlider-hoverBackground);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography */
+.message-content strong {
+    font-weight: 600;
+}
+
+.message-content em {
+    font-style: italic;
+}
+
+.message-content code {
+    background-color: var(--vscode-textCodeBlock-background);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .header {
+        padding: 8px 12px;
+    }
+    
+    .header h2 {
+        font-size: 14px;
+    }
+    
+    .messages {
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    .message-content {
+        padding: 10px 12px;
+        max-width: 90%;
+    }
+    
+    .input-container {
+        padding: 12px;
+    }
+    
+    #queryInput {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    #sendButton {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Dark/Light Theme Support */
+@media (prefers-color-scheme: dark) {
+    .message.user .message-content {
+        background-color: #007acc;
+        color: white;
+    }
+    
+    .message.assistant .message-content {
+        background-color: #2d2d30;
+        border-color: #3c3c3c;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .message.user .message-content {
+        background-color: #0078d4;
+        color: white;
+    }
+    
+    .message.assistant .message-content {
+        background-color: #f3f3f3;
+        border-color: #e1e1e1;
+    }
+} 
