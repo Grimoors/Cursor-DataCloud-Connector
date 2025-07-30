@@ -1,0 +1,38 @@
+[project]
+name = "salesforce-mcp-server"
+version = "0.1.0"
+description = "A Model Context Protocol server for Salesforce Data Cloud integration with Cursor"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "requests>=2.31.0",
+    "pyjwt>=2.8.0",
+    "cryptography>=41.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+salesforce-mcp = "salesforce_mcp.server:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"] 
